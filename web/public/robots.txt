@@ -1,3 +1,4 @@
-# POC preview — disallow indexing until the owner approves go-live.
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://juniorlurh-cmyk.github.io/coastal-heritage-poc/sitemap.xml

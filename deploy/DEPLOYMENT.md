@@ -89,8 +89,8 @@ The site is currently a **preview for the owner**. Before sharing widely:
 - [ ] Owner approves (trading name, address, services, hours, email)
 - [ ] Replace representative photos with real job photos
 - [ ] Confirm the real email address (currently `info@coastalheritage.co.za`)
-- [ ] Remove `<meta name="robots" content="noindex, nofollow">` from `web/index.html`
-- [ ] Change `web/public/robots.txt` to `Allow: /`
 - [ ] Remove the preview footnote in `src/components/Layout.jsx`
 - [ ] Point the Google Business Profile website field at the Pages URL
-- [ ] Submit to Google Search Console
+- [ ] Submit to Google Search Console (indexing is enabled: `index,follow`,
+      `Allow: /` robots.txt, `sitemap.xml` — but Google only discovers the
+      site quickly once it's verified in Search Console)
