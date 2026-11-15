@@ -53,7 +53,22 @@ the site's privacy note:
 3. Re-run the workflow — the tracking script is only injected when both are set
    (`web/src/components/Analytics.jsx`). Unset = zero trackers.
 
-## 5. Everyday workflow
+## 5. AI component (optional)
+
+The site ships an AI assistant (floating chat) and an AI market briefing on
+`/insights`. Both work **without a key** (rule-based fallback + static
+briefing). To enable the real model — free Groq tier:
+
+1. Get a key at `console.groq.com` (free, no card)
+2. Repo → **Settings → Secrets and variables → Actions**:
+   - Secret `VITE_AI_API_KEY`
+   - Variable `VITE_AI_MODEL` = `llama-3.3-70b-versatile` (optional)
+3. Re-run the workflow.
+
+Full details, alternate providers and the production key-proxy pattern are in
+`docs/AI.md`.
+
+## 6. Everyday workflow
 
 ```bash
 git add -A && git commit -m "..." && git push   # site redeploys automatically
@@ -67,7 +82,7 @@ VITE_BASE=/coastal-heritage-poc/ npm run build   # matches Pages exactly
 node serve.mjs                                  # http://localhost:4173
 ```
 
-## 6. Pre-go-live checklist
+## 7. Pre-go-live checklist
 
 The site is currently a **preview for the owner**. Before sharing widely:
 

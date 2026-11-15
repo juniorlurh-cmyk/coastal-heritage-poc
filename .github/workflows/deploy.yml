@@ -46,6 +46,9 @@ jobs:
         env:
           VITE_UMAMI_URL: ${{ vars.VITE_UMAMI_URL }}
           VITE_UMAMI_WEBSITE_ID: ${{ vars.VITE_UMAMI_WEBSITE_ID }}
+          VITE_AI_API_KEY: ${{ secrets.VITE_AI_API_KEY }}
+          VITE_AI_MODEL: ${{ vars.VITE_AI_MODEL }}
+          VITE_AI_ENDPOINT: ${{ vars.VITE_AI_ENDPOINT }}
         run: |
           npm ci
           npm run build

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
 import { SITE, WHATSAPP_DEFAULT } from '../data/site';
 import { Icon } from './Icons';
+import ChatWidget from './ChatWidget';
 
 const NAV = [
   { to: '/', label: 'Home', end: true },
@@ -105,6 +106,7 @@ function Footer() {
               <Link to="/services">Services</Link>
               <Link to="/projects">Projects</Link>
               <Link to="/contact">Contact</Link>
+              <Link to="/insights">Market insights</Link>
             </div>
             <div className="footer-col">
               <strong>Services</strong>
@@ -128,8 +130,9 @@ function Footer() {
         <div className="footer-bottom">
           <span>© {year} {SITE.name} · Pretoria, Gauteng</span>
           <span className="foot-note">
-            Website preview: photography and project details are representative of typical
-            work and will be replaced with verified company records before go-live.
+            Website preview: project details are representative of typical work and will be
+            replaced with verified company records before go-live. Area photography is real:
+            Wikimedia Commons images under CC licences, credited on each photo.
           </span>
         </div>
       </div>
@@ -146,6 +149,7 @@ export default function Layout() {
         <Outlet />
       </main>
       <Footer />
+      <ChatWidget />
       <a
         className="whatsapp-float"
         href={WHATSAPP_DEFAULT}

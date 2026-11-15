@@ -6,6 +6,7 @@ import About from './pages/About';
 import Services from './pages/Services';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
+import Insights from './pages/Insights';
 import NotFound from './pages/NotFound';
 
 export default function App() {
@@ -19,6 +20,7 @@ export default function App() {
           <Route path="services" element={<Services />} />
           <Route path="projects" element={<Projects />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="insights" element={<Insights />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

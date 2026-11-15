@@ -4,6 +4,7 @@ import FadeIn from '../components/FadeIn';
 import SectionHeading from '../components/SectionHeading';
 import CtaBand from '../components/CtaBand';
 import ProjectCard from '../components/ProjectCard';
+import AreasGallery from '../components/AreasGallery';
 import { Icon } from '../components/Icons';
 import { CATEGORIES, PROJECTS } from '../data/projects';
 
@@ -81,6 +82,7 @@ export default function Projects() {
           </FadeIn>
         </div>
       </section>
+      <AreasGallery />
       <CtaBand
         title="Want your project on this list?"
         text="Tell us what you are planning — we will scope it, quote it and get it done."
