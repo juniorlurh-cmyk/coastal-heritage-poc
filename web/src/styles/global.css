@@ -868,6 +868,16 @@ a.contact-detail:hover { border-color: rgba(83, 107, 91, 0.4); transform: transl
 .ai-brief-static { padding: 14px 18px; background: var(--paper); border-radius: 4px; }
 .ai-error { margin: 12px 0 0; color: var(--clay-dark); font-size: 13px; }
 
+.insights-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.insights-head .section-heading { margin-bottom: 0; }
+.insights-head .btn { margin-bottom: 6px; }
+
 /* ---------- viz board ---------- */
 
 .viz-board { margin-top: 34px; }

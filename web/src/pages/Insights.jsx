@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { downloadReport } from '../ai/report';
 import { Link } from 'react-router-dom';
 import FadeIn from '../components/FadeIn';
 import SectionHeading from '../components/SectionHeading';
@@ -110,12 +111,19 @@ export default function Insights() {
 
       <section className="section">
         <div className="wrap">
-          <FadeIn>
-            <SectionHeading eyebrow="Demand model" title="Demand by suburb and trade">
-              Scores are directional estimates from housing-stock age, dwelling
-              type and development activity — not measured sales data.
-            </SectionHeading>
-          </FadeIn>
+          <div className="insights-head">
+            <FadeIn>
+              <SectionHeading eyebrow="Demand model" title="Demand by suburb and trade">
+                Scores are directional estimates from housing-stock age, dwelling
+                type and development activity — not measured sales data.
+              </SectionHeading>
+            </FadeIn>
+            <FadeIn delay={60}>
+              <button className="btn" onClick={downloadReport}>
+                <Icon name="arrowDown" /> Export report
+              </button>
+            </FadeIn>
+          </div>
 
           <FadeIn delay={80}>
             <div className="filter-row" role="group" aria-label="Select trade">
