@@ -1,0 +1,698 @@
+<!doctype html>
+<html lang="en-ZA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17221f">
+  <meta name="description" content="A concept website for Coastal Heritage in Pretoria. Explore proposed building, renovation, plumbing and electrical service information and request a project conversation.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Coastal Heritage | Built around your next move">
+  <meta property="og:description" content="A digital concept for a more visible, trusted and easy-to-contact Coastal Heritage.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=85">
+  <title>Coastal Heritage | Built around your next move</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #17221f;
+      --ink-soft: #35413c;
+      --muted: #78817b;
+      --paper: #f5f4ef;
+      --white: #fffefa;
+      --line: rgba(23,34,31,.13);
+      --moss: #536b5b;
+      --moss-dark: #344b3d;
+      --clay: #c87955;
+      --sand: #e8e0d3;
+      --gold: #c69c69;
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'DM Sans', Arial, sans-serif;
+      --display: 'Manrope', Arial, sans-serif;
+      --shadow: 0 24px 70px rgba(23,34,31,.12);
+      --radius: 5px;
+      --max: 1220px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+    body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--sans); font-size: 15px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .wrap { width: min(var(--max), calc(100% - 56px)); margin-inline: auto; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; color: var(--moss); font-size: 10px; font-weight: 700; letter-spacing: .19em; text-transform: uppercase; }
+    .eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--clay); }
+    .section-heading { max-width: 680px; margin-bottom: 42px; }
+    .section-heading h2 { margin: 15px 0 14px; font-family: var(--serif); font-size: clamp(38px, 5vw, 62px); font-weight: 500; line-height: 1.07; letter-spacing: -.035em; }
+    .section-heading p { max-width: 560px; margin: 0; color: #66716a; font-size: 16px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 52px; padding: 0 22px; border: 1px solid transparent; border-radius: 2px; background: var(--clay); color: white; font-size: 11px; font-weight: 700; letter-spacing: .105em; text-transform: uppercase; cursor: pointer; transition: transform .2s ease, background .2s ease, border-color .2s ease; }
+    .btn:hover { transform: translateY(-2px); background: #ad6242; }
+    .btn svg { width: 15px; height: 15px; }
+    .btn-outline { color: white; border-color: rgba(255,255,255,.45); background: transparent; }
+    .btn-outline:hover { color: var(--ink); background: white; border-color: white; }
+    .btn-dark { color: white; background: var(--ink); }
+    .btn-dark:hover { background: var(--moss-dark); }
+    .text-link { display: inline-flex; align-items: center; gap: 9px; padding-bottom: 3px; border-bottom: 1px solid rgba(23,34,31,.35); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    .text-link svg { width: 14px; height: 14px; transition: transform .2s; }
+    .text-link:hover svg { transform: translateX(4px); }
+    .concept-bar { position: relative; z-index: 30; display: flex; align-items: center; justify-content: center; gap: 9px; min-height: 29px; padding: 5px 16px; color: #f9f6ef; background: #26342e; text-align: center; font-size: 9px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+    .concept-bar span { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+    .site-header { position: sticky; top: 0; z-index: 25; background: rgba(245,244,239,.94); border-bottom: 1px solid rgba(23,34,31,.08); backdrop-filter: blur(15px); }
+    .nav { display: flex; align-items: center; justify-content: space-between; min-height: 82px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; min-width: 225px; }
+    .brand-mark { display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid rgba(83,107,91,.5); color: var(--moss-dark); font-family: var(--serif); font-size: 23px; line-height: 1; }
+    .brand-name { display: flex; flex-direction: column; font-family: var(--display); font-size: 14px; font-weight: 800; letter-spacing: .16em; line-height: 1.2; text-transform: uppercase; }
+    .brand-name small { margin-top: 4px; color: var(--muted); font-family: var(--sans); font-size: 8px; font-weight: 600; letter-spacing: .18em; }
+    .nav-links { display: flex; align-items: center; gap: clamp(18px, 3vw, 39px); }
+    .nav-links a:not(.btn) { position: relative; color: #48534d; font-size: 11px; font-weight: 700; letter-spacing: .075em; text-transform: uppercase; }
+    .nav-links a:not(.btn)::after { position: absolute; right: 0; bottom: -7px; left: 0; height: 1px; background: var(--clay); content: ''; transform: scaleX(0); transform-origin: left; transition: transform .2s; }
+    .nav-links a:not(.btn):hover::after { transform: scaleX(1); }
+    .nav-links .btn { min-height: 43px; padding-inline: 17px; font-size: 9px; }
+    .menu-toggle { display: none; width: 44px; height: 44px; align-items: center; justify-content: center; border: 1px solid var(--line); background: transparent; color: var(--ink); cursor: pointer; }
+    .menu-toggle svg { width: 20px; height: 20px; }
+    .hero { position: relative; min-height: 680px; display: flex; align-items: center; overflow: hidden; color: white; background: #293b34; }
+    .hero::before { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(17,29,25,.88) 0%, rgba(17,29,25,.72) 43%, rgba(17,29,25,.16) 100%), linear-gradient(0deg, rgba(17,29,25,.32), transparent 45%); content: ''; z-index: 1; }
+    .hero-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 55%; opacity: .9; }
+    .hero-content { position: relative; z-index: 2; width: min(720px, 72%); padding: 92px 0 112px; }
+    .hero .eyebrow { color: #e2d3c0; }
+    .hero h1 { max-width: 710px; margin: 23px 0 22px; font-family: var(--serif); font-size: clamp(55px, 7.8vw, 99px); font-weight: 500; line-height: .99; letter-spacing: -.045em; }
+    .hero h1 em { color: #dfb18e; font-weight: 500; }
+    .hero-copy { max-width: 480px; margin: 0 0 30px; color: rgba(255,255,255,.79); font-size: 17px; line-height: 1.7; }
+    .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 13px; }
+    .hero-note { display: flex; align-items: center; gap: 17px; margin-top: 54px; color: rgba(255,255,255,.67); font-size: 10px; letter-spacing: .11em; text-transform: uppercase; }
+    .hero-note span { display: inline-flex; align-items: center; gap: 8px; }
+    .hero-note i { display: block; width: 3px; height: 3px; border-radius: 50%; background: var(--gold); }
+    .hero-index { position: absolute; z-index: 2; right: max(28px, calc((100vw - var(--max))/2)); bottom: 43px; color: rgba(255,255,255,.65); font-family: var(--serif); font-size: 13px; letter-spacing: .08em; }
+    .hero-index b { color: white; font-size: 30px; font-weight: 500; }
+    .proof-strip { position: relative; z-index: 3; background: var(--white); border-bottom: 1px solid var(--line); }
+    .proof-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr 1fr; min-height: 116px; align-items: center; }
+    .proof-intro { padding-right: 28px; color: var(--muted); font-size: 11px; line-height: 1.5; }
+    .proof-item { min-height: 56px; padding: 7px 24px; border-left: 1px solid var(--line); }
+    .proof-item strong { display: block; color: var(--ink); font-family: var(--serif); font-size: 28px; font-weight: 500; line-height: 1.1; }
+    .proof-item span { display: block; margin-top: 7px; color: var(--muted); font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+    .section { padding: 112px 0; }
+    .intro-grid { display: grid; grid-template-columns: .92fr 1.08fr; align-items: center; gap: clamp(50px, 9vw, 130px); }
+    .intro-visual { position: relative; min-height: 520px; }
+    .intro-visual img { position: absolute; inset: 0 48px 40px 0; width: calc(100% - 48px); height: calc(100% - 40px); object-fit: cover; }
+    .intro-visual::after { position: absolute; top: 28px; right: 0; bottom: 0; width: 45%; border: 1px solid rgba(83,107,91,.35); content: ''; z-index: -1; }
+    .visual-caption { position: absolute; right: 0; bottom: 0; width: 64%; padding: 22px 25px; color: white; background: var(--moss-dark); }
+    .visual-caption strong { display: block; font-family: var(--serif); font-size: 23px; font-weight: 500; }
+    .visual-caption span { display: block; margin-top: 4px; color: rgba(255,255,255,.67); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; }
+    .intro-copy h2 { margin: 17px 0 22px; font-family: var(--serif); font-size: clamp(42px, 5vw, 65px); font-weight: 500; line-height: 1.05; letter-spacing: -.035em; }
+    .intro-copy p { color: #66716a; font-size: 16px; }
+    .intro-copy .lead { color: var(--ink-soft); font-size: 19px; line-height: 1.55; }
+    .intro-copy .text-link { margin-top: 19px; }
+    .services-section { background: #eae9e2; }
+    .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+    .service-card { position: relative; min-height: 310px; padding: 31px 30px 28px; background: var(--white); border: 1px solid rgba(23,34,31,.06); transition: transform .25s, box-shadow .25s; }
+    .service-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+    .service-no { color: var(--clay); font-family: var(--serif); font-size: 15px; }
+    .service-icon { display: grid; place-items: center; width: 46px; height: 46px; margin: 22px 0 18px; color: var(--moss-dark); background: #e9ede7; border-radius: 50%; }
+    .service-icon svg { width: 21px; height: 21px; }
+    .service-card h3 { margin: 0 0 9px; font-family: var(--serif); font-size: 27px; font-weight: 500; line-height: 1.15; }
+    .service-card p { margin: 0; color: #748078; font-size: 13px; }
+    .service-status { display: inline-block; margin-top: 20px; padding: 5px 8px; color: #76513f; background: #f4e9df; font-size: 8px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+    .portfolio-section { background: var(--paper); }
+    .portfolio-top { display: flex; align-items: end; justify-content: space-between; gap: 25px; margin-bottom: 28px; }
+    .portfolio-top .section-heading { margin-bottom: 0; }
+    .filter-row { display: flex; align-items: center; flex-wrap: wrap; gap: 7px; margin-bottom: 2px; }
+    .filter-btn { padding: 9px 13px; border: 1px solid var(--line); color: #657169; background: transparent; font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; cursor: pointer; transition: all .2s; }
+    .filter-btn.active, .filter-btn:hover { color: white; border-color: var(--moss-dark); background: var(--moss-dark); }
+    .portfolio-disclaimer { display: flex; align-items: center; gap: 10px; margin: 0 0 22px; padding: 12px 15px; color: #73563f; background: #f1e8dc; font-size: 11px; }
+    .portfolio-disclaimer svg { flex: none; width: 16px; height: 16px; }
+    .project-grid { display: grid; grid-template-columns: 1.12fr .88fr .88fr; gap: 17px; }
+    .project-card { min-width: 0; background: var(--white); border: 1px solid rgba(23,34,31,.08); }
+    .project-card[hidden] { display: none; }
+    .project-image { position: relative; height: 245px; overflow: hidden; background: #d9d8d0; }
+    .project-card:first-child .project-image { height: 310px; }
+    .project-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
+    .project-card:hover .project-image img { transform: scale(1.04); }
+    .project-image::after { position: absolute; inset: 45% 0 0; background: linear-gradient(0deg, rgba(13,25,19,.43), transparent); content: ''; }
+    .project-tag { position: absolute; z-index: 1; top: 14px; left: 14px; padding: 6px 9px; color: var(--ink); background: rgba(255,254,250,.92); font-size: 8px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+    .project-body { padding: 20px 22px 23px; }
+    .project-meta { display: flex; justify-content: space-between; gap: 10px; color: var(--muted); font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+    .project-body h3 { margin: 9px 0 7px; font-family: var(--serif); font-size: 25px; font-weight: 500; line-height: 1.15; }
+    .project-body p { margin: 0; color: #748078; font-size: 12px; }
+    .project-foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 19px; padding-top: 14px; border-top: 1px solid var(--line); color: #9a7761; font-size: 8px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; }
+    .project-foot svg { width: 14px; height: 14px; }
+    .portfolio-bottom { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-top: 26px; padding: 21px 24px; background: #e9e6dc; }
+    .portfolio-bottom p { margin: 0; color: #606d64; font-size: 12px; }
+    .portfolio-bottom strong { color: var(--ink); }
+    .insights-section { position: relative; overflow: hidden; color: white; background: #1b2923; }
+    .insights-section::before { position: absolute; top: -180px; right: -120px; width: 520px; height: 520px; border: 1px solid rgba(255,255,255,.08); border-radius: 50%; content: ''; }
+    .insights-section::after { position: absolute; top: -95px; right: -35px; width: 350px; height: 350px; border: 1px solid rgba(255,255,255,.06); border-radius: 50%; content: ''; }
+    .insights-section .eyebrow { color: #d9ba9f; }
+    .insights-section .section-heading h2 { color: white; }
+    .insights-section .section-heading p { color: rgba(255,255,255,.63); }
+    .insight-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.15fr .85fr; gap: 18px; }
+    .insight-panel { padding: 31px; border: 1px solid rgba(255,255,255,.13); background: rgba(255,255,255,.045); }
+    .panel-head { display: flex; align-items: start; justify-content: space-between; gap: 18px; margin-bottom: 28px; }
+    .panel-kicker { color: #b6c0b8; font-size: 9px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; }
+    .panel-head h3 { margin: 7px 0 0; color: white; font-family: var(--serif); font-size: 27px; font-weight: 500; }
+    .source-pill { padding: 6px 9px; color: #d9c3aa; border: 1px solid rgba(217,195,170,.28); font-size: 8px; font-weight: 700; letter-spacing: .11em; text-transform: uppercase; white-space: nowrap; }
+    .rating-row { display: grid; grid-template-columns: 95px 1fr 70px; align-items: center; gap: 15px; margin: 20px 0; }
+    .rating-source { color: rgba(255,255,255,.78); font-size: 12px; font-weight: 600; }
+    .rating-track { height: 7px; background: rgba(255,255,255,.12); }
+    .rating-fill { height: 100%; background: #c88d68; }
+    .rating-score { color: white; font-family: var(--serif); font-size: 21px; text-align: right; }
+    .rating-detail { grid-column: 2 / 4; margin-top: -13px; color: rgba(255,255,255,.45); font-size: 9px; }
+    .chart-note { margin: 25px 0 0; padding-top: 17px; color: rgba(255,255,255,.52); border-top: 1px solid rgba(255,255,255,.13); font-size: 10px; line-height: 1.6; }
+    .signal-list { display: grid; gap: 0; }
+    .signal-item { display: grid; grid-template-columns: 34px 1fr; gap: 13px; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,.12); }
+    .signal-item:last-child { border-bottom: 0; }
+    .signal-icon { display: grid; place-items: center; width: 32px; height: 32px; color: #d4a07b; background: rgba(212,160,123,.13); border-radius: 50%; }
+    .signal-icon svg { width: 15px; height: 15px; }
+    .signal-item strong { display: block; color: white; font-size: 12px; }
+    .signal-item span { display: block; margin-top: 3px; color: rgba(255,255,255,.53); font-size: 10px; line-height: 1.5; }
+
+    .data-preview { position: relative; z-index: 1; margin-top: 18px; padding: 27px 31px 30px; border: 1px solid rgba(255,255,255,.13); background: rgba(255,255,255,.035); }
+    .data-preview-head { display: flex; align-items: end; justify-content: space-between; gap: 35px; }
+    .data-preview-head h3 { margin: 7px 0 0; color: white; font-family: var(--serif); font-size: 25px; font-weight: 500; }
+    .data-preview-head p { max-width: 420px; margin: 0; color: rgba(255,255,255,.55); font-size: 11px; }
+    .data-preview-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-top: 23px; }
+    .data-preview-grid > div { padding: 18px; border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.025); }
+    .data-preview-grid span { display: block; color: #d4a07b; font-size: 8px; font-weight: 700; letter-spacing: .14em; }
+    .data-preview-grid strong { display: block; margin: 11px 0 4px; color: rgba(255,255,255,.9); font-family: var(--serif); font-size: 19px; font-weight: 500; }
+    .data-preview-grid small { color: rgba(255,255,255,.48); font-size: 9px; }
+    .insight-foot { position: relative; z-index: 1; display: flex; justify-content: space-between; gap: 20px; margin-top: 17px; color: rgba(255,255,255,.43); font-size: 9px; letter-spacing: .04em; }
+    .process-section { background: #e7e8e0; }
+    .process-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; margin-top: 49px; border-top: 1px solid rgba(23,34,31,.2); }
+    .process-step { position: relative; padding: 31px 24px 0 0; }
+    .process-step:not(:last-child)::after { position: absolute; top: -4px; right: 16px; width: 7px; height: 7px; border: 1px solid var(--clay); border-radius: 50%; background: #e7e8e0; content: ''; }
+    .process-step .num { color: var(--clay); font-family: var(--serif); font-size: 16px; }
+    .process-step h3 { margin: 14px 0 8px; font-family: var(--serif); font-size: 25px; font-weight: 500; }
+    .process-step p { max-width: 230px; margin: 0; color: #6d786f; font-size: 12px; }
+    .process-note { margin-top: 28px; color: #8a7664; font-size: 10px; font-style: italic; }
+    .contact-section { position: relative; padding: 118px 0; background: var(--white); }
+    .contact-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(45px, 8vw, 105px); align-items: start; }
+    .contact-copy h2 { margin: 15px 0 18px; font-family: var(--serif); font-size: clamp(42px, 5vw, 62px); font-weight: 500; line-height: 1.05; letter-spacing: -.03em; }
+    .contact-copy > p { max-width: 400px; color: #6b776e; font-size: 15px; }
+    .contact-details { display: grid; gap: 17px; margin-top: 36px; }
+    .contact-detail { display: flex; align-items: center; gap: 13px; }
+    .contact-detail .icon { display: grid; place-items: center; width: 40px; height: 40px; color: var(--moss-dark); background: #e9ede7; border-radius: 50%; }
+    .contact-detail .icon svg { width: 17px; height: 17px; }
+    .contact-detail small { display: block; color: #929a93; font-size: 8px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+    .contact-detail strong { display: block; margin-top: 2px; color: var(--ink); font-size: 13px; font-weight: 600; }
+    .contact-form { padding: 34px; background: #f2f1eb; border: 1px solid rgba(23,34,31,.08); }
+    .form-title { margin: 0 0 22px; font-family: var(--serif); font-size: 27px; font-weight: 500; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    .field.full { grid-column: 1 / -1; }
+    .field label { color: #526057; font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+    .field input, .field select, .field textarea { width: 100%; min-height: 47px; padding: 11px 12px; color: var(--ink); background: #fffefa; border: 1px solid rgba(23,34,31,.14); border-radius: 0; outline: none; font-size: 12px; transition: border .2s, box-shadow .2s; }
+    .field textarea { min-height: 104px; resize: vertical; }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--moss); box-shadow: 0 0 0 3px rgba(83,107,91,.1); }
+    .form-submit { width: 100%; margin-top: 18px; }
+    .form-privacy { margin: 12px 0 0; color: #89928b; font-size: 9px; line-height: 1.5; }
+    .form-status { display: none; margin-top: 12px; padding: 10px 12px; color: #355644; background: #e4eee6; font-size: 11px; }
+    .form-status.visible { display: block; }
+    .footer { padding: 56px 0 23px; color: rgba(255,255,255,.73); background: #17221f; }
+    .footer-main { display: flex; justify-content: space-between; gap: 50px; padding-bottom: 43px; }
+    .footer .brand { color: white; }
+    .footer .brand-mark { color: #e4c6ad; border-color: rgba(228,198,173,.45); }
+    .footer .brand-name small { color: rgba(255,255,255,.43); }
+    .footer-blurb { max-width: 340px; margin-top: 18px; color: rgba(255,255,255,.5); font-size: 12px; }
+    .footer-links { display: flex; gap: clamp(22px, 5vw, 70px); }
+    .footer-col strong { display: block; margin-bottom: 13px; color: #e0b18e; font-size: 9px; letter-spacing: .15em; text-transform: uppercase; }
+    .footer-col a, .footer-col span { display: block; margin: 7px 0; color: rgba(255,255,255,.66); font-size: 11px; }
+    .footer-col a:hover { color: white; }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.12); color: rgba(255,255,255,.37); font-size: 9px; }
+    .footer-bottom strong { color: rgba(255,255,255,.62); font-weight: 600; }
+    .whatsapp-float { position: fixed; right: 22px; bottom: 22px; z-index: 20; display: grid; place-items: center; width: 54px; height: 54px; color: white; background: #267d57; border-radius: 50%; box-shadow: 0 8px 28px rgba(14,44,29,.3); transition: transform .2s; }
+    .whatsapp-float:hover { transform: translateY(-4px); }
+    .whatsapp-float svg { width: 25px; height: 25px; }
+    .fade-up { opacity: 0; transform: translateY(17px); transition: opacity .6s ease, transform .6s ease; }
+    .fade-up.in-view { opacity: 1; transform: translateY(0); }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    @media (max-width: 900px) {
+      .wrap { width: min(var(--max), calc(100% - 40px)); }
+      .nav-links { gap: 15px; }
+      .nav-links a:not(.btn) { font-size: 9px; }
+      .brand { min-width: 190px; }
+      .hero { min-height: 630px; }
+      .hero-content { width: 78%; }
+      .proof-grid { grid-template-columns: repeat(3,1fr); padding: 20px 0; }
+      .proof-intro { grid-column: 1 / -1; padding: 0 0 13px; }
+      .proof-item:first-of-type { border-left: 0; padding-left: 0; }
+      .intro-grid { gap: 55px; }
+      .intro-visual { min-height: 450px; }
+      .project-grid { grid-template-columns: 1fr 1fr; }
+      .project-card:first-child { grid-column: 1 / -1; }
+      .project-card:first-child .project-image { height: 290px; }
+      .insight-grid { grid-template-columns: 1fr; }
+      .contact-grid { gap: 45px; }
+    }
+    @media (max-width: 680px) {
+      html { scroll-padding-top: 74px; }
+      .wrap { width: calc(100% - 34px); }
+      .concept-bar { min-height: 27px; font-size: 8px; letter-spacing: .08em; }
+      .nav { min-height: 70px; }
+      .brand { min-width: 0; gap: 9px; }
+      .brand-mark { width: 37px; height: 37px; font-size: 20px; }
+      .brand-name { font-size: 12px; }
+      .brand-name small { font-size: 7px; }
+      .menu-toggle { display: inline-flex; }
+      .nav-links { position: absolute; top: 69px; right: 0; left: 0; display: none; flex-direction: column; align-items: stretch; gap: 0; padding: 9px 17px 18px; background: var(--paper); border-bottom: 1px solid var(--line); box-shadow: 0 14px 20px rgba(23,34,31,.08); }
+      .nav-links.open { display: flex; }
+      .nav-links a:not(.btn) { padding: 12px 2px; border-bottom: 1px solid var(--line); font-size: 10px; }
+      .nav-links a:not(.btn)::after { display: none; }
+      .nav-links .btn { margin-top: 13px; }
+      .hero { min-height: 650px; align-items: end; }
+      .hero::before { background: linear-gradient(0deg, rgba(17,29,25,.94) 0%, rgba(17,29,25,.72) 58%, rgba(17,29,25,.18) 100%); }
+      .hero-image { object-position: 58% center; }
+      .hero-content { width: 100%; padding: 115px 0 100px; }
+      .hero h1 { max-width: 550px; font-size: clamp(54px, 14vw, 78px); }
+      .hero-copy { max-width: 420px; font-size: 15px; }
+      .hero-actions { align-items: stretch; flex-direction: column; max-width: 310px; }
+      .hero-actions .btn { width: 100%; }
+      .hero-note { flex-wrap: wrap; gap: 9px 14px; margin-top: 34px; font-size: 8px; }
+      .hero-index { right: 18px; bottom: 22px; font-size: 10px; }
+      .hero-index b { font-size: 21px; }
+      .proof-grid { grid-template-columns: 1fr 1fr; gap: 10px 0; padding: 17px 0; }
+      .proof-intro { grid-column: 1 / -1; }
+      .proof-item { padding: 8px 12px; }
+      .proof-item:nth-of-type(2) { border-left: 0; padding-left: 0; }
+      .proof-item strong { font-size: 24px; }
+      .proof-item span { font-size: 8px; }
+      .section { padding: 78px 0; }
+      .section-heading { margin-bottom: 30px; }
+      .section-heading h2 { font-size: 43px; }
+      .section-heading p { font-size: 14px; }
+      .intro-grid { grid-template-columns: 1fr; gap: 46px; }
+      .intro-visual { min-height: 420px; order: 2; }
+      .intro-copy { order: 1; }
+      .intro-copy h2 { font-size: 45px; }
+      .intro-copy .lead { font-size: 17px; }
+      .service-grid { grid-template-columns: 1fr; gap: 10px; }
+      .service-card { min-height: 0; padding: 24px; }
+      .service-icon { margin: 15px 0 14px; }
+      .portfolio-top { display: block; }
+      .filter-row { margin-top: 22px; }
+      .filter-btn { padding: 8px 10px; font-size: 8px; }
+      .project-grid { grid-template-columns: 1fr; gap: 13px; }
+      .project-card:first-child { grid-column: auto; }
+      .project-card:first-child .project-image, .project-image { height: 225px; }
+      .portfolio-bottom { align-items: start; flex-direction: column; padding: 19px; }
+      .insight-panel { padding: 22px 17px; }
+      .panel-head { flex-direction: column; margin-bottom: 22px; }
+      .rating-row { grid-template-columns: 70px 1fr 57px; gap: 9px; }
+      .rating-source { font-size: 10px; }
+      .rating-score { font-size: 19px; }
+      .insight-foot { flex-direction: column; gap: 5px; }
+      .data-preview { padding: 22px 17px; }
+      .data-preview-head { align-items: start; flex-direction: column; gap: 9px; }
+      .data-preview-grid { grid-template-columns: 1fr; }
+      .process-grid { grid-template-columns: 1fr 1fr; row-gap: 28px; }
+      .process-step { padding-right: 13px; }
+      .process-step:not(:last-child)::after { right: 8px; }
+      .contact-section { padding: 78px 0; }
+      .contact-grid { grid-template-columns: 1fr; gap: 36px; }
+      .contact-copy h2 { font-size: 45px; }
+      .contact-form { padding: 23px 17px; }
+      .form-grid { grid-template-columns: 1fr; }
+      .field.full { grid-column: auto; }
+      .footer-main { flex-direction: column; gap: 34px; }
+      .footer-links { justify-content: space-between; gap: 18px; }
+      .footer-bottom { align-items: start; flex-direction: column; gap: 8px; }
+      .whatsapp-float { right: 14px; bottom: 14px; width: 49px; height: 49px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+      .fade-up { opacity: 1; transform: none; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "name": "Coastal Heritage",
+    "telephone": "+27 78 742 8887",
+    "areaServed": { "@type": "City", "name": "Pretoria" },
+    "description": "A concept listing for a Pretoria construction-focused business. Service scope and business details require owner verification."
+  }
+  </script>
+</head>
+<body>
+  <div class="concept-bar"><span aria-hidden="true"></span> Concept preview · illustrative photography · business details pending approval</div>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="#home" aria-label="Coastal Heritage home">
+        <span class="brand-mark">C.</span>
+        <span class="brand-name">Coastal Heritage<small>Building · Property · Craft</small></span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="navLinks">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#insights">Reputation</a>
+        <a href="#contact" class="btn">Let's talk <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <img class="hero-image" src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=2200&q=88" alt="Construction site with a building structure in progress" fetchpriority="high">
+      <div class="wrap">
+        <div class="hero-content fade-up in-view">
+          <span class="eyebrow">Pretoria · Construction & property solutions</span>
+          <h1>Good work.<br><em>Built to last.</em></h1>
+          <p class="hero-copy">A clearer way to bring your next project to life. From the first conversation to the finishing details, let's make the way forward feel straightforward.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#contact">Discuss your project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+            <a class="btn btn-outline" href="#projects">Explore the work <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 5v14m-6-6 6 6 6-6"/></svg></a>
+          </div>
+          <div class="hero-note"><span><i></i> Built around your needs</span><span><i></i> Pretoria, Gauteng</span><span><i></i> Direct enquiries</span></div>
+        </div>
+      </div>
+      <div class="hero-index"><b>01</b> / A better first impression</div>
+    </section>
+
+    <section class="proof-strip" aria-label="Public information snapshot">
+      <div class="wrap proof-grid">
+        <div class="proof-intro">A first look at the business's public footprint. Ratings are shown by source, not blended.</div>
+        <div class="proof-item"><strong>5.0 / 5</strong><span>Google · 1 rating</span></div>
+        <div class="proof-item"><strong>4.8 / 5</strong><span>Cybo · 4 ratings</span></div>
+        <div class="proof-item"><strong>Pretoria</strong><span>Publicly listed location</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="wrap intro-grid">
+        <div class="intro-visual fade-up">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1100&q=85" alt="Contemporary residential property exterior, used as illustrative concept photography" loading="lazy">
+          <div class="visual-caption"><strong>Made for the work that matters.</strong><span>Concept positioning · confirm company story</span></div>
+        </div>
+        <div class="intro-copy fade-up">
+          <span class="eyebrow">A more confident online presence</span>
+          <h2>Every project deserves to be seen.</h2>
+          <p class="lead">Good work should not depend on word of mouth alone. It should be easy for the next customer to discover what you do, understand how you work and start a conversation.</p>
+          <p>This concept gives Coastal Heritage a professional place to introduce its services, present completed work and make enquiries simple. The final story should be shaped around the owner's experience, team and real projects—not generic promises.</p>
+          <a class="text-link" href="#services">Explore the proposed structure <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section services-section" id="services">
+      <div class="wrap">
+        <div class="section-heading fade-up">
+          <span class="eyebrow">What customers can find</span>
+          <h2>Clear services.<br>Confident decisions.</h2>
+          <p>A simple service structure helps visitors quickly recognise whether they have found the right team.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card fade-up">
+            <span class="service-no">01 / BUILD</span>
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-7h6v7M8 9h.01M16 9h.01"/></svg></div>
+            <h3>Building & property improvements</h3>
+            <p>A place to explain the building, maintenance and improvement work the business undertakes.</p>
+            <span class="service-status">Scope to confirm with owner</span>
+          </article>
+          <article class="service-card fade-up">
+            <span class="service-no">02 / PLUMBING</span>
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v6a5 5 0 0 0 10 0V7M4 7h6M14 7h6M12 14v3a4 4 0 0 0 8 0v-1M18 16h4"/><path d="M7 3h.01M17 3h.01"/></svg></div>
+            <h3>Plumbing</h3>
+            <p>A dedicated overview for the plumbing services, repairs or installations the team is qualified to provide.</p>
+            <span class="service-status">Scope & credentials to confirm</span>
+          </article>
+          <article class="service-card fade-up">
+            <span class="service-no">03 / ELECTRICAL</span>
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13h6L10 22l9.5-12h-6L13 2Z"/></svg></div>
+            <h3>Electrical work</h3>
+            <p>A clear explanation of the electrical work offered, including any applicable compliance requirements.</p>
+            <span class="service-status">Scope & credentials to confirm</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section portfolio-section" id="projects">
+      <div class="wrap">
+        <div class="portfolio-top">
+          <div class="section-heading fade-up">
+            <span class="eyebrow">A portfolio worth exploring</span>
+            <h2>Let the work<br>speak for itself.</h2>
+            <p>Real project stories turn a list of services into evidence customers can understand.</p>
+          </div>
+          <div class="filter-row" role="group" aria-label="Filter portfolio examples">
+            <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+            <button class="filter-btn" data-filter="build" aria-pressed="false">Building</button>
+            <button class="filter-btn" data-filter="renovation" aria-pressed="false">Renovation</button>
+            <button class="filter-btn" data-filter="services" aria-pressed="false">Services</button>
+          </div>
+        </div>
+        <div class="portfolio-disclaimer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 11v5m0-8h.01"/></svg><span><strong>Demonstration only:</strong> these are illustrative stock photographs and portfolio layouts, not verified Coastal Heritage projects. Replace them with the owner's real work before publication.</span></div>
+        <div class="project-grid" id="projectGrid">
+          <article class="project-card fade-up" data-category="build">
+            <div class="project-image">
+              <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=85" alt="Construction workers at a building site, illustrative stock photograph" loading="lazy">
+              <span class="project-tag">Portfolio template · 01</span>
+            </div>
+            <div class="project-body">
+              <div class="project-meta"><span>Building project</span><span>Case study format</span></div>
+              <h3>From site to structure</h3>
+              <p>Show the starting point, work completed, materials used and the final result in a concise project story.</p>
+              <div class="project-foot"><span>Replace with a verified project</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></div>
+            </div>
+          </article>
+          <article class="project-card fade-up" data-category="renovation">
+            <div class="project-image">
+              <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=85" alt="Modern renovated interior, illustrative stock photograph" loading="lazy">
+              <span class="project-tag">Portfolio template · 02</span>
+            </div>
+            <div class="project-body">
+              <div class="project-meta"><span>Property improvement</span><span>Case study format</span></div>
+              <h3>Spaces made better</h3>
+              <p>Capture the customer's brief, the challenge, the improvements and the finished space.</p>
+              <div class="project-foot"><span>Replace with a verified project</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></div>
+            </div>
+          </article>
+          <article class="project-card fade-up" data-category="services">
+            <div class="project-image">
+              <img src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=900&q=85" alt="Electrical technician at work, illustrative stock photograph" loading="lazy">
+              <span class="project-tag">Portfolio template · 03</span>
+            </div>
+            <div class="project-body">
+              <div class="project-meta"><span>Specialist service</span><span>Case study format</span></div>
+              <h3>The detail matters</h3>
+              <p>Show the service delivered, the location, the scope and any relevant handover information.</p>
+              <div class="project-foot"><span>Replace with a verified project</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></div>
+            </div>
+          </article>
+        </div>
+        <div class="portfolio-bottom fade-up">
+          <p><strong>The opportunity:</strong> turn each completed job into a searchable, visual case study—with before-and-after photos, location, scope and customer feedback.</p>
+          <a class="text-link" href="#contact">Discuss the portfolio <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section insights-section" id="insights">
+      <div class="wrap">
+        <div class="section-heading fade-up">
+          <span class="eyebrow">Reputation, made visible</span>
+          <h2>Trust is built on<br>evidence—not noise.</h2>
+          <p>A transparent snapshot of the ratings that are publicly discoverable today, with each source kept separate.</p>
+        </div>
+        <div class="insight-grid">
+          <div class="insight-panel fade-up">
+            <div class="panel-head">
+              <div><div class="panel-kicker">Public rating snapshot</div><h3>What the listings show</h3></div>
+              <span class="source-pill">Nov 2026 research</span>
+            </div>
+            <div class="rating-row">
+              <div class="rating-source">Google listing</div>
+              <div class="rating-track" role="img" aria-label="Google listing rating 5 out of 5"><div class="rating-fill" style="width:100%"></div></div>
+              <div class="rating-score">5.0/5</div>
+              <div class="rating-detail">1 rating · surfaced business listing</div>
+            </div>
+            <div class="rating-row">
+              <div class="rating-source">Cybo directory</div>
+              <div class="rating-track" role="img" aria-label="Cybo directory rating 4.8 out of 5"><div class="rating-fill" style="width:96%"></div></div>
+              <div class="rating-score">4.8/5</div>
+              <div class="rating-detail">4 ratings · Coastal Heritage Plumbing and Electricals listing</div>
+            </div>
+            <p class="chart-note">These are separate third-party snapshots with different review counts and listing names. They are not added together or presented as one company-wide score. Confirm and connect the correct profiles with the owner before launch.</p>
+          </div>
+          <div class="insight-panel fade-up">
+            <div class="panel-head">
+              <div><div class="panel-kicker">Evidence gaps to close</div><h3>Where better data helps</h3></div>
+              <span class="source-pill">Research signals</span>
+            </div>
+            <div class="signal-list">
+              <div class="signal-item">
+                <div class="signal-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 3v18h18M7 14l4-4 3 3 6-7"/></svg></div>
+                <div><strong>Project history not yet verified</strong><span>No reliable public project catalogue was identified. Add real work examples with owner-approved details.</span></div>
+              </div>
+              <div class="signal-item">
+                <div class="signal-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5H6l-3 2v-6.5A7.5 7.5 0 1 1 20 11.5Z"/><path d="M8 11h8M8 14h5"/></svg></div>
+                <div><strong>Written review themes unavailable</strong><span>Accessible records provide ratings and counts, but not enough review text to calculate sentiment honestly.</span></div>
+              </div>
+              <div class="signal-item">
+                <div class="signal-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 5h16v14H4zM8 9h8M8 13h5"/><path d="m8 19 2-3h4l2 3"/></svg></div>
+                <div><strong>Business details need one source of truth</strong><span>Public listings differ on the trading name and street address. Confirm the correct details before publishing.</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="data-preview fade-up">
+          <div class="data-preview-head">
+            <div><div class="panel-kicker">Project intelligence · next layer</div><h3>Turn completed work into useful insight.</h3></div>
+            <p>Once the owner provides an approved project register, this space can report the shape of the portfolio—not just display photographs.</p>
+          </div>
+          <div class="data-preview-grid">
+            <div><span>01 / PROJECT MIX</span><strong>Awaiting verified records</strong><small>Breakdown by project and service category.</small></div>
+            <div><span>02 / DELIVERY HISTORY</span><strong>Awaiting verified dates</strong><small>Project timelines and completion trends.</small></div>
+            <div><span>03 / PROJECT FOOTPRINT</span><strong>Awaiting verified locations</strong><small>Map of completed work by suburb or region.</small></div>
+          </div>
+        </div>
+        <div class="insight-foot"><span>Sources: Google business listing and Cybo directory, reviewed 14 November 2026.</span><span>Ratings are snapshots, not a guarantee of future service quality.</span></div>
+      </div>
+    </section>
+
+    <section class="section process-section" id="process">
+      <div class="wrap">
+        <div class="section-heading fade-up">
+          <span class="eyebrow">A simple way to get started</span>
+          <h2>From first message<br>to clear next steps.</h2>
+          <p>A proposed enquiry journey that helps customers explain what they need and gives the business useful information before the first call.</p>
+        </div>
+        <div class="process-grid">
+          <article class="process-step fade-up"><span class="num">01 / HELLO</span><h3>Tell us about it</h3><p>Share the type of work, location and what you would like to achieve.</p></article>
+          <article class="process-step fade-up"><span class="num">02 / UNDERSTAND</span><h3>Discuss the details</h3><p>Clarify the brief, site conditions, timing and any useful reference photos.</p></article>
+          <article class="process-step fade-up"><span class="num">03 / PLAN</span><h3>Agree the scope</h3><p>Set out the proposed work, quotation, practicalities and next steps.</p></article>
+          <article class="process-step fade-up"><span class="num">04 / DELIVER</span><h3>Move forward</h3><p>Keep communication clear as the agreed work progresses.</p></article>
+        </div>
+        <p class="process-note">Suggested customer journey for the concept. Confirm the actual operating process with Coastal Heritage.</p>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="wrap contact-grid">
+        <div class="contact-copy fade-up">
+          <span class="eyebrow">Start with a conversation</span>
+          <h2>What are you looking to build?</h2>
+          <p>Tell us a little about your project. A clear first message helps the team understand what you need and how best to respond.</p>
+          <div class="contact-details">
+            <a class="contact-detail" href="tel:+27787428887">
+              <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M21 16.5v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 10.2 18a19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 1.7 3.2 2 2 0 0 1 3.7 1h3a2 2 0 0 1 2 1.7l.5 3a2 2 0 0 1-.6 1.7L6.8 9.2a16 16 0 0 0 6 6l1.8-1.8a2 2 0 0 1 1.7-.6l3 .5a2 2 0 0 1 1.7 2Z"/></svg></span>
+              <span><small>Call the business</small><strong>078 742 8887</strong></span>
+            </a>
+            <div class="contact-detail">
+              <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+              <span><small>Public listing area</small><strong>Pretoria, Gauteng</strong></span>
+            </div>
+            <a class="text-link" href="https://www.google.com/maps/place/Coastal+Heritage/@-25.7528376,28.2037632,331m/data=!3m1!1e3!4m10!1m2!2m1!1sconstruction+company!3m6!1s0x1e9561593f14c827:0xf91a5209d283113c!8m2!3d-25.7524744!4d28.206044!15sChRjb25zdHJ1Y3Rpb24gY29tcGFueZIBFGNvbnN0cnVjdGlvbl9jb21wYW554AEA!16s%2Fg%2F11pkcrz5t4?entry=ttu" target="_blank" rel="noopener">View public map listing <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 4h6v6m-11 4L20 4M18 13v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6"/></svg></a>
+          </div>
+        </div>
+        <form class="contact-form fade-up" id="enquiryForm">
+          <h3 class="form-title">Tell us about your project</h3>
+          <div class="form-grid">
+            <div class="field"><label for="fullName">Your name</label><input id="fullName" name="name" autocomplete="name" placeholder="Name and surname" required></div>
+            <div class="field"><label for="phone">Contact number</label><input id="phone" name="phone" autocomplete="tel" type="tel" placeholder="Your phone number" required></div>
+            <div class="field"><label for="projectType">What do you need?</label><select id="projectType" name="project" required><option value="" disabled selected>Select a service</option><option>Building / property improvements</option><option>Renovation</option><option>Plumbing</option><option>Electrical work</option><option>Other / not sure yet</option></select></div>
+            <div class="field"><label for="area">Project location</label><input id="area" name="area" placeholder="Suburb or area" required></div>
+            <div class="field full"><label for="message">A few project details</label><textarea id="message" name="message" placeholder="What would you like done? Include any timing or details that may help."></textarea></div>
+          </div>
+          <button class="btn btn-dark form-submit" type="submit">Continue to WhatsApp <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button>
+          <p class="form-privacy">This concept form opens WhatsApp with your enquiry details. It does not store or transmit form data to a website server.</p>
+          <div class="form-status" id="formStatus" role="status" aria-live="polite">Your enquiry is ready to send in WhatsApp.</div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-main">
+        <div>
+          <a class="brand" href="#home"><span class="brand-mark">C.</span><span class="brand-name">Coastal Heritage<small>Building · Property · Craft</small></span></a>
+          <p class="footer-blurb">A more considered digital home for a local business—built around real work, clear information and easier conversations.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col"><strong>Explore</strong><a href="#about">About</a><a href="#services">Services</a><a href="#projects">Projects</a><a href="#insights">Reputation</a></div>
+          <div class="footer-col"><strong>Get in touch</strong><a href="tel:+27787428887">078 742 8887</a><a href="#contact">Request a conversation</a><span>Pretoria, Gauteng</span></div>
+        </div>
+      </div>
+      <div class="footer-bottom"><span>© <span id="year"></span> Coastal Heritage · Concept preview</span><span><strong>Prepared as a demonstration.</strong> Content and imagery require owner approval before publication.</span></div>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/27787428887?text=Hello%20Coastal%20Heritage%2C%20I%20would%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener" aria-label="Contact Coastal Heritage on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.8 11.8 0 0 0 12.11 0C5.57 0 .25 5.31.25 11.85c0 2.09.55 4.13 1.6 5.93L.15 24l6.37-1.67a11.9 11.9 0 0 0 5.59 1.42h.01c6.54 0 11.86-5.32 11.86-11.86 0-3.17-1.23-6.15-3.46-8.41ZM12.12 21.7h-.01a9.86 9.86 0 0 1-5.02-1.37l-.36-.21-3.78.99 1.01-3.69-.23-.38a9.85 9.85 0 0 1-1.51-5.19c0-5.45 4.44-9.89 9.9-9.89a9.8 9.8 0 0 1 6.99 2.9 9.82 9.82 0 0 1 2.89 7c0 5.45-4.44 9.89-9.88 9.89Zm5.43-7.4c-.3-.15-1.77-.87-2.05-.97-.28-.1-.48-.15-.68.15-.2.3-.78.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.8-1.49-1.78-1.66-2.08-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.38-.03-.53-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01-.2 0-.53.08-.8.38-.28.3-1.05 1.03-1.05 2.5s1.08 2.9 1.23 3.1c.15.2 2.13 3.25 5.16 4.56.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.18-1.42-.08-.13-.28-.2-.58-.35Z"/></svg>
+  </a>
+
+  <script>
+    (() => {
+      const phoneNumber = '27787428887';
+      const menuToggle = document.getElementById('menuToggle');
+      const navLinks = document.getElementById('navLinks');
+      menuToggle.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('open');
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+        menuToggle.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
+      });
+      navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Open navigation');
+      }));
+
+      document.querySelectorAll('.filter-btn').forEach(button => {
+        button.addEventListener('click', () => {
+          const filter = button.dataset.filter;
+          document.querySelectorAll('.filter-btn').forEach(item => {
+            const active = item === button;
+            item.classList.toggle('active', active);
+            item.setAttribute('aria-pressed', String(active));
+          });
+          document.querySelectorAll('.project-card').forEach(card => {
+            card.hidden = filter !== 'all' && card.dataset.category !== filter;
+          });
+        });
+      });
+
+      const form = document.getElementById('enquiryForm');
+      const status = document.getElementById('formStatus');
+      form.addEventListener('submit', event => {
+        event.preventDefault();
+        if (!form.reportValidity()) return;
+        const values = new FormData(form);
+        const message = [
+          'Hello Coastal Heritage, I would like to enquire about a project.',
+          '',
+          `Name: ${values.get('name')}`,
+          `Contact number: ${values.get('phone')}`,
+          `Service: ${values.get('project')}`,
+          `Project area: ${values.get('area')}`,
+          `Details: ${values.get('message') || 'Not provided yet'}`
+        ].join('\n');
+        status.classList.add('visible');
+        const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+        window.open(url, '_blank', 'noopener,noreferrer');
+      });
+
+      const revealItems = document.querySelectorAll('.fade-up:not(.in-view)');
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in-view');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12 });
+        revealItems.forEach(item => observer.observe(item));
+      } else {
+        revealItems.forEach(item => item.classList.add('in-view'));
+      }
+      document.getElementById('year').textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>

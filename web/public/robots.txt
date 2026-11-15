@@ -1,0 +1,3 @@
+# POC preview — disallow indexing until the owner approves go-live.
+User-agent: *
+Disallow: /

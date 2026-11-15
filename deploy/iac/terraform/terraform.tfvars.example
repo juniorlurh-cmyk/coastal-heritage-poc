@@ -1,0 +1,13 @@
+# Copy to terraform.tfvars and fill in.
+# compartment_id = your tenancy OCID (OCI Console → Profile → Tenancy → OCID)
+# region         = your home region id, e.g. "af-johannesburg-1"
+
+compartment_id = "ocid1.tenancy.oc1..xxxxxxx"
+region         = "af-johannesburg-1"
+ssh_public_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBduSsUsI5k1+WL+PZR3Fz3Pf9QJ7rf7JrtDXbgyci1J coastal-heritage-deploy"
+
+# Free-tier shape options (comment/uncomment):
+# shape = "VM.Standard.E2.1.Micro"   # AMD x86, 1GB — always available (default)
+# shape = "VM.Standard.A1.Flex"      # ARM — more power, often out of capacity
+# shape_ocpus      = 1
+# shape_memory_gb  = 6

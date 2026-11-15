@@ -1,0 +1,52 @@
+#cloud-config
+# Runs once on first boot: base hardening + nginx + site directory.
+# The site itself is uploaded afterwards by deploy/deploy.sh.
+
+package_update: true
+package_upgrade: true
+
+packages:
+  - nginx
+  - ufw
+
+write_files:
+  - path: /etc/nginx/sites-available/coastal-heritage
+    permissions: "0644"
+    content: |
+      server {
+          listen 80;
+          listen [::]:80;
+          server_name _;
+
+          root /var/www/coastal-heritage;
+          index index.html;
+
+          gzip on;
+          gzip_types text/css application/javascript application/json image/svg+xml text/plain;
+          gzip_min_length 1024;
+
+          location /assets/ {
+              expires 1y;
+              add_header Cache-Control "public, immutable";
+              try_files $uri =404;
+          }
+
+          # SPA routing — real files win, everything else falls back to index.html
+          location / {
+              try_files $uri $uri/ /index.html;
+          }
+
+          add_header X-Content-Type-Options nosniff always;
+          add_header X-Frame-Options SAMEORIGIN always;
+          add_header Referrer-Policy strict-origin-when-cross-origin always;
+      }
+
+runcmd:
+  - mkdir -p /var/www/coastal-heritage
+  - chown -R ubuntu:ubuntu /var/www/coastal-heritage
+  - ln -sf /etc/nginx/sites-available/coastal-heritage /etc/nginx/sites-enabled/coastal-heritage
+  - rm -f /etc/nginx/sites-enabled/default
+  - ufw allow OpenSSH
+  - ufw allow 'Nginx Full'
+  - ufw --force enable
+  - nginx -t && systemctl reload nginx
