@@ -1,12 +1,15 @@
 import { useEffect } from 'react';
 
 /**
- * Privacy-friendly, cookie-free analytics (Umami), self-hosted on the same VPS.
+ * Privacy-friendly, cookie-free analytics (Umami).
+ * Works with Umami Cloud free tier or any self-hosted Umami instance.
  *
  * Enable at build time:
- *   VITE_UMAMI_URL=https://analytics.yourdomain.co.za
+ *   VITE_UMAMI_URL=https://cloud.umami.is   (or your own instance)
  *   VITE_UMAMI_WEBSITE_ID=xxxx-xxxx-xxxx
  *
+ * Set them as repository Variables in GitHub (Settings → Variables → Actions)
+ * and the Pages workflow picks them up automatically.
  * When unset the site ships with zero trackers.
  */
 export default function Analytics() {

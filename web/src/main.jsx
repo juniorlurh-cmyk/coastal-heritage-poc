@@ -7,7 +7,7 @@ import Analytics from './components/Analytics';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Analytics />
       <App />
     </BrowserRouter>

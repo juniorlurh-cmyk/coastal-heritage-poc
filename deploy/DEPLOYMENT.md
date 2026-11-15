@@ -1,173 +1,81 @@
-# Deployment guide — free VPS + domain + routing
+# Deployment guide — GitHub Pages
 
-This site is a static React SPA: it builds to plain HTML/CSS/JS in `web/dist/`.
-It can be hosted for **R0/month** on Oracle Cloud's Always Free tier, with a free
-subdomain, free HTTPS, and self-hosted analytics. The only thing that can never be
-free is a `.co.za` domain (~R99–R199/year) — see the domain section for free
-alternatives.
+The site is a static React SPA. GitHub Pages hosts it **free forever**, with
+free HTTPS and a free `github.io` domain — no server, no maintenance.
+
+Live URL once enabled:
+
+```
+https://juniorlurh-cmyk.github.io/coastal-heritage-poc/
+```
 
 ---
 
-## 1. Free VPS — Oracle Cloud Always Free
+## 1. How it's wired
 
-Oracle Cloud is the only major provider with a *permanent* free VPS tier (not a
-trial). Two shapes are free forever:
+| Piece | How it works on Pages |
+|---|---|
+| Hosting | `.github/workflows/deploy.yml` builds `web/` on every push to `main` and publishes `web/dist` via the official Pages actions |
+| Routing | `npm run postbuild` copies `dist/index.html` → `dist/404.html`; Pages serves it for unknown paths, so `/about`, `/services`, `/projects`, `/contact` work as real URLs |
+| Base path | The workflow writes `VITE_BASE=/coastal-heritage-poc/` into `web/.env.production`; `vite.config.js` reads it and React Router uses it as `basename` |
+| HTTPS | Automatic on `github.io` — nothing to configure |
+| Analytics | Optional Umami (cloud free tier) via repo Variables — see section 4 |
 
-| Shape | CPU | RAM | Notes |
-|---|---|---|---|
-| `VM.Standard.E2.1.Micro` | 1 AMD | 1 GB | Always available. Plenty for nginx + a static site. |
-| `VM.Standard.A1.Flex` | up to 4 ARM | up to 24 GB | More power, but often "out of capacity" in busy regions — retry or pick E2.1.Micro. |
+## 2. Enable Pages (one-time, ~1 min)
 
-### Provision — automated (recommended)
+1. Repo → **Settings → Pages**
+2. **Source: GitHub Actions** (not "Deploy from a branch")
+3. Push to `main` (or **Actions → Deploy to GitHub Pages → Run workflow**)
+4. The workflow runs → site is live at the URL above.
 
-See `deploy/iac/` — the whole stack is codified two ways:
+## 3. Free domain
 
-- **`deploy/iac/cloudshell.sh`** — paste into OCI Cloud Shell (pre-authenticated
-  browser CLI). Creates the VCN, security rules and VM with nginx installed.
-- **`deploy/iac/terraform/`** — upload to OCI Resource Manager (Oracle's
-  CloudFormation equivalent) and Apply.
+`https://juniorlurh-cmyk.github.io/coastal-heritage-poc/` is the free domain —
+no registration needed.
 
-Both tag every resource `Project=coastal-heritage, Tier=AlwaysFree` and print
-the public IP + free `sslip.io` hostname when done.
+For a real domain later (`coastalheritage.co.za`, ~R99–R199/yr):
 
-### Provision — manual (alternative)
+1. At the registrar, add DNS `A` records for `@` → `185.199.108.153`,
+   `185.199.109.153`, `185.199.110.153`, `185.199.111.153`, plus `CNAME` for
+   `www` → `juniorlurh-cmyk.github.io`
+2. Repo → Settings → Pages → **Custom domain** → enter it → **Enforce HTTPS**
+3. Commit a `CNAME` file in `web/public/` containing the domain — that's all.
 
-1. Sign up at `cloud.oracle.com` → Always Free account (a card is required for
-   identity verification but is **not charged**).
-2. **Create VM instance** → Image: *Ubuntu 24.04 (Minimal)* → Shape:
-   `VM.Standard.E2.1.Micro` → upload your SSH public key.
-3. In the VCN → Security List → add **Ingress Rules** for TCP `80` and `443`
-   (source `0.0.0.0/0`). The free tier only allows traffic you explicitly open.
-4. SSH in: `ssh ubuntu@<public-ip>`
+## 4. Analytics (optional)
 
-### Harden & install nginx
+Umami Cloud has a free tier — cookie-free, no personal data, consistent with
+the site's privacy note:
 
-```bash
-sudo apt update && sudo apt upgrade -y
-sudo apt install -y nginx ufw
+1. Sign up at `cloud.umami.is` → add the site → copy the **website ID**
+2. Repo → **Settings → Secrets and variables → Actions → Variables** → add:
+   - `VITE_UMAMI_URL` = `https://cloud.umami.is`
+   - `VITE_UMAMI_WEBSITE_ID` = `<your-website-id>`
+3. Re-run the workflow — the tracking script is only injected when both are set
+   (`web/src/components/Analytics.jsx`). Unset = zero trackers.
 
-sudo ufw allow OpenSSH
-sudo ufw allow 'Nginx Full'
-sudo ufw enable
-
-sudo mkdir -p /var/www/coastal-heritage
-sudo chown -R ubuntu:ubuntu /var/www/coastal-heritage
-```
-
-Copy `deploy/nginx/coastal-heritage.conf` to
-`/etc/nginx/sites-available/coastal-heritage`, edit `server_name`, then:
+## 5. Everyday workflow
 
 ```bash
-sudo ln -s /etc/nginx/sites-available/coastal-heritage /etc/nginx/sites-enabled/
-sudo rm /etc/nginx/sites-enabled/default
-sudo nginx -t && sudo systemctl reload nginx
+git add -A && git commit -m "..." && git push   # site redeploys automatically
 ```
 
-> **SPA routing:** the `try_files $uri $uri/ /index.html;` line in that config is
-> what makes `/about`, `/services`, `/projects`, `/contact` work as real URLs.
-> Without it, refreshing on any route other than `/` returns nginx 404.
-
-## 2. Domain — honest options
-
-There is **no legitimately free `.co.za` domain**. Pick one of these:
-
-| Option | Cost | Notes |
-|---|---|---|
-| `coastal-heritage.co.za` | ~R99–R199/yr | domains.co.za, Afrihost, HostAfrica. **Recommended** — a real local domain sells the pitch. |
-| `coastalheritage.com` | ~R200–R350/yr | Namecheap, Cloudflare Registrar. |
-| `yourname.eu.org` | Free | eu.org gives real delegated subdomains; approval can take days–weeks. |
-| `*.pp.ua` | Free | nic.ua free Ukrainian subdomains, quick registration. |
-| `freedns.afraid.org` | Free | Shared subdomains (e.g. `coastalheritage.mooo.com`) — fine for a demo, less professional. |
-| `*.sslip.io` / `*.nip.io` | Free, instant | `coastal-heritage.<your-ip>.sslip.io` resolves to your IP automatically. Works with certbot. Good for staging. |
-
-### DNS records
-
-At your DNS provider, create:
-
-```
-A     @         <vps-public-ip>
-A     www       <vps-public-ip>
-A     analytics <vps-public-ip>   # for Umami (section 4)
-```
-
-## 3. Deploy the site
-
-On your machine (Git Bash works):
+Local check before pushing:
 
 ```bash
 cd web
-npm ci
-npm run build           # outputs web/dist/
-
-# one-time or scripted upload (see deploy.sh):
-scp -r -i ~/.ssh/your-key dist/* ubuntu@<vps-ip>:/var/www/coastal-heritage/
+VITE_BASE=/coastal-heritage-poc/ npm run build   # matches Pages exactly
+node serve.mjs                                  # http://localhost:4173
 ```
 
-Then issue free HTTPS (requires the domain to be pointing at the VPS first):
+## 6. Pre-go-live checklist
 
-```bash
-sudo apt install -y certbot python3-certbot-nginx
-sudo certbot --nginx -d coastalheritage.co.za -d www.coastalheritage.co.za
-sudo certbot renew --dry-run   # auto-renewal is already scheduled
-```
+The site is currently a **preview for the owner**. Before sharing widely:
 
-Certbot rewrites the nginx config to listen on 443 and redirect HTTP→HTTPS
-automatically.
-
-## 4. Analytics — self-hosted Umami (free, POPIA-friendly)
-
-Umami is open-source, cookie-free analytics. Self-hosting it on the same VPS
-means the site has **real analytics with zero trackers and zero monthly cost**
-— and the data never leaves your server.
-
-```bash
-# install docker
-sudo apt install -y docker.io docker-compose-v2 || sudo snap install docker
-sudo usermod -aG docker ubuntu && newgrp docker
-
-cd ~
-mkdir umami && cd umami
-# copy deploy/umami/docker-compose.yml here, create .env from .env.example
-docker compose up -d
-```
-
-Then:
-
-1. Copy `deploy/nginx/analytics.conf` to `sites-available/analytics`, set
-   `server_name analytics.yourdomain`, enable it, and run
-   `sudo certbot --nginx -d analytics.yourdomain`.
-2. Log into `https://analytics.yourdomain` (default `admin` / `umami` — change
-   immediately), create the website, copy the **website ID**.
-3. Rebuild with tracking enabled:
-
-```bash
-cd web
-VITE_UMAMI_URL=https://analytics.yourdomain.co.za \
-VITE_UMAMI_WEBSITE_ID=<your-website-id> \
-npm run build
-```
-
-The tracking script is only injected when both env vars are set — until then the
-site ships with zero trackers (`src/components/Analytics.jsx`).
-
-## 5. Pre-go-live checklist
-
-The site is currently a **preview for the owner**. Before publishing:
-
-- [ ] Owner approves the site (trading name, address, services, hours, email)
+- [ ] Owner approves (trading name, address, services, hours, email)
 - [ ] Replace representative photos with real job photos
 - [ ] Confirm the real email address (currently `info@coastalheritage.co.za`)
 - [ ] Remove `<meta name="robots" content="noindex, nofollow">` from `web/index.html`
 - [ ] Change `web/public/robots.txt` to `Allow: /`
-- [ ] Remove the preview footnote in `src/components/Layout.jsx` footer
-- [ ] Point the Google Business Profile website field at the new domain
-- [ ] Submit sitemap in Google Search Console
-
-## 6. Updating later
-
-```bash
-cd web && npm run build
-scp -r -i ~/.ssh/your-key dist/* ubuntu@<vps-ip>:/var/www/coastal-heritage/
-```
-
-That's it — static files, no restart needed. `deploy/deploy.sh` automates this.
+- [ ] Remove the preview footnote in `src/components/Layout.jsx`
+- [ ] Point the Google Business Profile website field at the Pages URL
+- [ ] Submit to Google Search Console
