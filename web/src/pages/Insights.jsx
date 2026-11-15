@@ -6,6 +6,7 @@ import { Icon } from '../components/Icons';
 import { MARKET_DATA, SERVICES, topAreas } from '../data/market';
 import { AREAS } from '../data/areas';
 import { analyseMarket, AI_ENABLED, AI_MODEL } from '../ai/provider';
+import VizBoard from '../components/VizBoard';
 
 const areaImage = Object.fromEntries(AREAS.map((a) => [a.id, a.image]));
 
@@ -159,6 +160,10 @@ export default function Insights() {
           </div>
 
           <FadeIn delay={100}>
+            <VizBoard />
+          </FadeIn>
+
+          <FadeIn delay={110}>
             <AiBriefing />
           </FadeIn>
 

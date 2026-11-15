@@ -9,6 +9,21 @@ Two AI-powered features, one provider layer (`web/src/ai/provider.js`):
    demand matrix to the model and renders an internal market briefing on
    demand hotspots, priority suburbs per trade, gaps and recommendations.
    Result is cached in `localStorage` (`ch-ai-brief`).
+3. **AI-selected visuals** (`VizBoard.jsx`, `/insights`) — the model itself
+   decides which chart types best report the demand data (horizontal/vertical
+   bars, donut, line — all rendered as inline SVG, no chart library).
+
+## Visualization spec: reflection + eval
+
+`ai/viz.js` implements a propose → eval → reflect → finalize loop:
+
+1. The model returns a JSON chart spec (type, title, items with labels+values).
+2. `evalSpec()` validates it: only allowed chart types, 2–8 items per chart,
+   labels must be real suburb/service names, values 0–100.
+3. On failure the validation errors are fed back to the model for **one**
+   correction pass (reflection with external feedback).
+4. A passing spec is rendered; a second failure falls back to the default
+   charts. Nothing unvalidated reaches the UI.
 
 ## Free provider — Groq (recommended)
 
@@ -19,11 +34,11 @@ needed.
 2. **Local dev** — create `web/.env.local`:
    ```
    VITE_AI_API_KEY=gsk_your_key_here
-   VITE_AI_MODEL=llama-3.3-70b-versatile
+   VITE_AI_MODEL=qwen/qwen3.8-27b
    ```
 3. **Deployed site** — repo → Settings → Secrets and variables → Actions:
    - **Secret** `VITE_AI_API_KEY` = the key
-   - **Variable** `VITE_AI_MODEL` = `llama-3.3-70b-versatile` (optional; this is the default)
+   - **Variable** `VITE_AI_MODEL` = `qwen/qwen3.8-27b` (optional; this is the default)
    - Re-run the Pages workflow (push a commit or Actions → re-run).
 
 Other free OpenAI-compatible endpoints work too — set `VITE_AI_ENDPOINT`

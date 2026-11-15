@@ -4,7 +4,7 @@
 // Get a free API key at https://console.groq.com — no card required.
 // Configure via build-time env vars (see docs/AI.md):
 //   VITE_AI_API_KEY  — Groq (or any OpenAI-compatible endpoint) key
-//   VITE_AI_MODEL    — default 'llama-3.3-70b-versatile'
+//   VITE_AI_MODEL    — default 'qwen/qwen3.8-27b'
 //   VITE_AI_ENDPOINT — default 'https://api.groq.com/openai/v1/chat/completions'
 //
 // NOTE: GitHub Pages is static hosting, so a key set here ships inside the
@@ -16,7 +16,7 @@
 import { SITE, SERVICE_AREAS } from '../data/site';
 
 const API_KEY = import.meta.env.VITE_AI_API_KEY || '';
-const MODEL = import.meta.env.VITE_AI_MODEL || 'llama-3.3-70b-versatile';
+const MODEL = import.meta.env.VITE_AI_MODEL || 'qwen/qwen3.8-27b';
 const ENDPOINT =
   import.meta.env.VITE_AI_ENDPOINT ||
   'https://api.groq.com/openai/v1/chat/completions';

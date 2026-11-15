@@ -62,7 +62,7 @@ briefing). To enable the real model — free Groq tier:
 1. Get a key at `console.groq.com` (free, no card)
 2. Repo → **Settings → Secrets and variables → Actions**:
    - Secret `VITE_AI_API_KEY`
-   - Variable `VITE_AI_MODEL` = `llama-3.3-70b-versatile` (optional)
+   - Variable `VITE_AI_MODEL` = `qwen/qwen3.8-27b` (optional)
 3. Re-run the workflow.
 
 Full details, alternate providers and the production key-proxy pattern are in
