@@ -19,7 +19,8 @@ prototype — not yet an approved or production-ready company website.
 │   └── DEPLOYMENT.md       GitHub Pages setup, free domain, analytics, go-live checklist
 ├── docs/
 │   ├── ARCHITECTURE.md     Full project documentation — stack, structure, decisions
-│   └── AI.md               AI assistant + market briefing: free key setup, security
+│   ├── AI.md               AI assistant + market briefing: free key setup, security
+│   └── PLAYBOOK.md         Reusable build workflow + package list for future sites
 ├── .github/workflows/
 │   └── deploy.yml          Builds web/ and publishes to GitHub Pages on push to main
 ├── legacy/                 Original single-file static prototype (reference)
